@@ -11,23 +11,23 @@
 # step 3: save file, run script
 ###############################################################################
 
-DO_TRN=false
+DO_TRN=True
 DO_RUN=false
 DO_CALC=false
 n_samples=250 # n_samples to run, calculate metrics
 
 model_list=(
-    #flan-t5-xl
+    flan-t5-xl
     #flan-ul2
+    #llama2-7b
+    #llama2-13b
     #vicuna-7b
     #alpaca-7b
     #med-alpaca-7b
-    #llama2-7b
-    #llama2-13b
 )
 
 dataset_list=(
-    #opi
+    opi      # radiology reports
     #cxr
     #iii
     #chq
@@ -36,7 +36,7 @@ dataset_list=(
 )
 
 case_id_list=(
-    #0
+    0
     #10
     #11
     #12
