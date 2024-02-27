@@ -208,7 +208,7 @@ def load_model_and_tokenizer(args):
             quantization_config = None
     except:
         quantization_config = None
-
+    print(args.arch)
     # read model path, basename from constants.py 
     if 'gptq' in args.arch:
         model_path = constants.MODELS[args.arch][args.model]['path']
