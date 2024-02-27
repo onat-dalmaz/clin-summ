@@ -18,16 +18,15 @@ MODELS = {
         "t5-xl": "t5-3b",
         "flan-t5-xl": "google/flan-t5-xl",
     },
+
     's2s-ul2': {
         "flan-ul2": "google/flan-ul2",
     },
 
     'gpt': { # gpt-style architectures
-
         "vicuna-7b": "AlekseyKorshuk/vicuna-7b", 
         "alpaca-7b": "chavinlo/alpaca-native",
         "med-alpaca-7b": "medalpaca/medalpaca-7b",
-
     },
 
     'gptq': { # gpt-style architectures w quant

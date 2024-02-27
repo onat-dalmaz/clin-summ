@@ -25,6 +25,7 @@ def main():
    
     # set preliminaries, model, tokenizer
     args, writer = set_preliminaries()
+    print(args)
     model, tokenizer = load_model_and_tokenizer(args)
     model = get_tunable_model(model, args)
 
@@ -208,8 +209,8 @@ def load_model_and_tokenizer(args):
             quantization_config = None
     except:
         quantization_config = None
-    print(args.arch)
-    # read model path, basename from constants.py 
+
+    # read model path, basename from constants.py
     if 'gptq' in args.arch:
         model_path = constants.MODELS[args.arch][args.model]['path']
         model_basename = constants.MODELS[args.arch][args.model]['basename']
