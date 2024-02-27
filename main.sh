@@ -11,8 +11,8 @@
 # step 3: save file, run script
 ###############################################################################
 
-DO_TRN=false
-DO_CALC=true
+DO_TRN=true
+DO_CALC=false
 DO_RUN=false
 
 
