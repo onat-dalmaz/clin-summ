@@ -1,4 +1,4 @@
-# from auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig
+from auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig
 import math
 import os
 import peft
