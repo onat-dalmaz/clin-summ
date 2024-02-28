@@ -26,8 +26,8 @@ model_list=(
     # alpaca-7b
     #med-alpaca-7b
     #mistral-7b
-    mistral-7b-q
-    #llama2-7b
+#    mistral-7b-q
+    llama2-7b
     #llama2-13b
 )
 
