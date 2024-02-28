@@ -25,9 +25,9 @@ def main():
    
     # set preliminaries, model, tokenizer
     args, writer = set_preliminaries()
-    print(args)
     model, tokenizer = load_model_and_tokenizer(args)
     model = get_tunable_model(model, args)
+    print("loaded model!")
 
     # load data
     trn_dataset = SummDataset(args, task='trn').dataset_obj

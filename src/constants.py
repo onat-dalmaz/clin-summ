@@ -27,6 +27,7 @@ MODELS = {
         "vicuna-7b": "AlekseyKorshuk/vicuna-7b", 
         "alpaca-7b": "chavinlo/alpaca-native",
         "med-alpaca-7b": "medalpaca/medalpaca-7b",
+        "mistral-7b": "mistralai/Mistral-7B-v0.1",
     },
 
     'gptq': { # gpt-style architectures w quant
