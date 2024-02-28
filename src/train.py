@@ -270,7 +270,7 @@ def get_tunable_model(model, args):
 
         # prepare for k-bit training
         model = peft.prepare_model_for_kbit_training(model) 
-        
+        print(task_type)
         # get peft configs based on architecture (task_type) and fine-tuning method
         config = peft.LoraConfig(task_type=task_type, inference_mode=False,
                                  r=constants.LORA_R, lora_alpha=constants.LORA_ALPHA,
