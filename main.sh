@@ -20,12 +20,13 @@ n_samples=250 # n_samples to run, calculate metrics
 
 model_list=(
     # "t5-small"
-#    flan-t5-xl
+    # flan-t5-xl
     # flan-ul2
     #vicuna-7b
     # alpaca-7b
     #med-alpaca-7b
-    mistral-7b
+    #mistral-7b
+    mistral-7b-q
     # llama2-7b
     #llama2-13b
 )

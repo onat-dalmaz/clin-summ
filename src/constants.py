@@ -39,6 +39,10 @@ MODELS = {
             'path': 'TheBloke/Llama-2-13B-GPTQ',
             'basename': 'model',
         },
+        'mistral-7b-q': {
+            'path': 'TheBloke/Mistral-7B-Instruct-v0.2-GPTQ',
+            'basename': 'model',                                # TODO: basename = "model"?
+        },
     },
 
     # openai models: leave blank
