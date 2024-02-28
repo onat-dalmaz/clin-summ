@@ -272,7 +272,7 @@ def get_tunable_model(model, args):
         model = peft.prepare_model_for_kbit_training(model) 
 
         # get peft configs based on architecture (task_type) and fine-tuning method
-        config = peft.LoraConfig(task_type=task_type, target_modules=["Conv2d", "Ëmbedding"], inference_mode=False,
+        config = peft.LoraConfig(task_type=task_type, target_modules=["q_proj", "k_proj", "v_proj"], inference_mode=False,
                                  r=constants.LORA_R, lora_alpha=constants.LORA_ALPHA,
                                  lora_dropout=constants.LORA_DROPOUT)
 
