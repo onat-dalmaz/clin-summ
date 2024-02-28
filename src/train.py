@@ -20,6 +20,8 @@ import parser
 import process
 from summ_dataset import SummDataset
 
+from peft.utils import TRANSFORMERS_MODELS_TO_LORA_TARGET_MODULES_MAPPING
+
 
 def main():
    
@@ -272,10 +274,12 @@ def get_tunable_model(model, args):
         model = peft.prepare_model_for_kbit_training(model) 
 
         # get peft configs based on architecture (task_type) and fine-tuning method
-        config = peft.LoraConfig(task_type=task_type, target_modules=["v_proj"], inference_mode=False,
+        config = peft.LoraConfig(task_type=task_type, inference_mode=False,
                                  r=constants.LORA_R, lora_alpha=constants.LORA_ALPHA,
                                  lora_dropout=constants.LORA_DROPOUT)
 
+    model_config = getattr(model, "config", {"model_type": "custom"})
+    print(set(TRANSFORMERS_MODELS_TO_LORA_TARGET_MODULES_MAPPING[model_config["model_type"]]))
     # wrap model w peft configs
     model = peft.get_peft_model(model, config).to(args.device)
     model.print_trainable_parameters()
