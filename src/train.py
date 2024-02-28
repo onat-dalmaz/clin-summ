@@ -278,16 +278,26 @@ def get_tunable_model(model, args):
                                  r=constants.LORA_R, lora_alpha=constants.LORA_ALPHA,
                                  lora_dropout=constants.LORA_DROPOUT)
 
-    # print([key for key, _ in model.named_modules()])
-    model_config = getattr(model, "config", {"model_type": "custom"})
-    if hasattr(model_config, "to_dict"):
-        model_config = model_config.to_dict()
-    print(set(TRANSFORMERS_MODELS_TO_LORA_TARGET_MODULES_MAPPING[model_config["model_type"]]))
+    key_list = [key for key, _ in model.named_modules()]
+    for i, key in enumerate(key_list):
+        parent, target, target_name = _get_submodules(model, key)
+        print(i, target_name, target, '\n')
+    # model_config = getattr(model, "config", {"model_type": "custom"})
+    # if hasattr(model_config, "to_dict"):
+    #     model_config = model_config.to_dict()
+    # print(set(TRANSFORMERS_MODELS_TO_LORA_TARGET_MODULES_MAPPING[model_config["model_type"]]))
     # wrap model w peft configs
     model = peft.get_peft_model(model, config).to(args.device)
     model.print_trainable_parameters()
 
     return model
+
+
+def _get_submodules(model, key):
+    parent = model.get_submodule(".".join(key.split(".")[:-1]))
+    target_name = key.split(".")[-1]
+    target = model.get_submodule(key)
+    return parent, target, target_name
 
 
 def prep_batch(args, batch):
