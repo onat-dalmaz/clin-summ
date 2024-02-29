@@ -11,9 +11,9 @@
 # step 3: save file, run script
 ###############################################################################
 
-DO_TRN=true
+DO_TRN=false
 DO_CALC=false
-DO_RUN=false
+DO_RUN=true
 
 
 n_samples=250 # n_samples to run, calculate metrics
