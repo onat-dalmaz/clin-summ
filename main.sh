@@ -12,21 +12,25 @@
 ###############################################################################
 
 DO_TRN=false
-DO_CALC=true
-DO_RUN=false
+DO_CALC=false
+DO_RUN=true
+
+# flag to create output from a model that was not finetuned
+USE_FINETUNED=false
 
 
 n_samples=250 # n_samples to run, calculate metrics
 
 model_list=(
     # "t5-small"
-    flan-t5-xl
+    # flan-t5-xl
     # flan-ul2
     #vicuna-7b
     # alpaca-7b
     #med-alpaca-7b
     # llama2-7b
     #llama2-13b
+    bio-med-lm
 )
 
 dataset_list=(
@@ -68,10 +72,18 @@ for j in "${!model_list[@]}"; do
 
             ### generate output 
             if $DO_RUN; then 
-                python src/run.py --model $model \
-                                    --case_id $case_id \
-                                    --dataset $dataset \
-                                    --n_samples $n_samples
+                if $USE_FINETUNED; then
+                    python src/run.py --model $model \
+                                        --case_id $case_id \
+                                        --dataset $dataset \
+                                        --n_samples $n_samples \
+                                        --use_finetuned
+                else
+                    python src/run.py --model $model \
+                                        --case_id $case_id \
+                                        --dataset $dataset \
+                                        --n_samples $n_samples
+                fi
             fi
             
             ### calculate metrics
