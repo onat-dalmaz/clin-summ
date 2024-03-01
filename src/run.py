@@ -46,7 +46,7 @@ def main():
                                          attention_mask=input_tok['attention_mask'],
                                          do_sample=False,
                                          max_length=max_length,
-                                         stopping_criteria=stopping_criteria,
+                                         # stopping_criteria=stopping_criteria,
                                          pad_token_id=tokenizer.pad_token_id)
 
             out_txt = tokenizer.batch_decode(out_tok.detach().cpu().numpy(),
