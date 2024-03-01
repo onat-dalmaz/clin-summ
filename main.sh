@@ -12,8 +12,8 @@
 ###############################################################################
 
 DO_TRN=false
-DO_CALC=false
-DO_RUN=true
+DO_CALC=true
+DO_RUN=false
 
 
 n_samples=250 # n_samples to run, calculate metrics
